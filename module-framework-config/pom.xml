@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.mobvoi.ticwatch</groupId>
+    <artifactId>ticwatch</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <groupId>com.mobvoi.ticwatch</groupId>
+  <artifactId>module-framework-config</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>module-framework-config</name>
+  <description>module-framework-config</description>
+  <properties>
+    <java.version>1.8</java.version>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.9</version>
+    </dependency>
+
+    <dependency>
+      <groupId>p6spy</groupId>
+      <artifactId>p6spy</artifactId>
+      <version>3.7.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid-spring-boot-starter</artifactId>
+      <version>1.1.22</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <scope>runtime</scope>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+  </dependencies>
+
+  <profiles>
+    <!--开发环境-->
+    <profile>
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <package.environment>dev</package.environment>
+      </properties>
+    </profile>
+
+    <!--测试环境-->
+    <profile>
+      <id>test</id>
+      <properties>
+        <package.environment>test</package.environment>
+      </properties>
+    </profile>
+
+    <!--生产环境-->
+    <profile>
+      <id>prod</id>
+      <properties>
+        <package.environment>prod</package.environment>
+      </properties>
+    </profile>
+  </profiles>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <!-- 资源根目录排除各环境的配置，使用单独的资源目录来指定 -->
+        <excludes>
+          <exclude>dev/*</exclude>
+          <exclude>prod/*</exclude>
+          <exclude>test/*</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <directory>src/main/resources/${package.environment}</directory>
+        <!--是否替换资源中的属性-->
+        <filtering>true</filtering>
+        <includes>
+          <include>logback-ticwatch-vpa.xml</include>
+<!--          <include>spy.properties</include>-->
+        </includes>
+      </resource>
+    </resources>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <configuration>
+            <encoding>utf-8</encoding>
+            <useDefaultDelimiters>true</useDefaultDelimiters>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>
