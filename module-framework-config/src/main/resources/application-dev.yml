@@ -4,7 +4,7 @@ swagger:
 
 spring:
   profiles:
-    active: test
+    active: dev
   application:
     name: ticwatch
   #  flyway:
@@ -18,16 +18,16 @@ spring:
     dynamic:
       primary: ticwatch # 配置默认数据库
       datasource:
-        ticwatch: # 数据源1配置
+        ticwatch: # 数据源1配置 service层的注解@DS("ticwatch")名字必须和这个名字匹配
           url: jdbc:mysql://127.0.0.1:3306/ticwatch?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false
           username: root
           password: 123456
           driver-class-name: com.mysql.cj.jdbc.Driver
-        account: # 数据源2配置
+        ticaccount: # 数据源2配置 service层的注解@DS("ticaccount")名字必须和这个名字匹配
           url: jdbc:mysql://127.0.0.1:3306/ticaccount?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false
           username: root
           password: 123456
-          driver-class-name: com.mysql.jdbc.Driver
+          driver-class-name: com.mysql.cj.jdbc.Driver
       durid:
         initial-size: 1
         max-active: 20

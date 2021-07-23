@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.ticwatch.module.base.modules.mapper.TbAccountMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mobvoi.ticwatch.framework.domain.entitys.account.TbAccountEntity">
+        <id column="id" property="id" />
+        <result column="wwid" property="wwid" />
+        <result column="payment_time" property="paymentTime" />
+        <result column="free_space" property="freeSpace" />
+        <result column="total_space" property="totalSpace" />
+        <result column="nick_name" property="nickName" />
+        <result column="email" property="email" />
+        <result column="phone" property="phone" />
+        <result column="vip_duration_discount" property="vipDurationDiscount" />
+        <result column="vip_expired_at" property="vipExpiredAt" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, wwid, payment_time, free_space, total_space, nick_name, email, phone, vip_duration_discount, vip_expired_at, created_at, updated_at
+    </sql>
+
+</mapper>

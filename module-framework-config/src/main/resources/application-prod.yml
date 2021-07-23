@@ -4,25 +4,30 @@ swagger:
 
 spring:
   profiles:
-    active: local
+    active: prod
   application:
     name: ticwatch
-#  flyway:
-#    enabled: true
-#    encoding: utf-8
-#    locations: classpath:db/migration
-#    table: flyway_schema_history
-#    baseline-on-migrate: true
-#    validate-on-migrate: false
+  #  flyway:
+  #    enabled: true
+  #    encoding: utf-8
+  #    locations: classpath:db/migration
+  #    table: flyway_schema_history
+  #    baseline-on-migrate: true
+  #    validate-on-migrate: false
   datasource:
     dynamic:
       primary: ticwatch # 配置默认数据库
       datasource:
         ticwatch: # 数据源1配置
-          url: jdbc:mysql://127.0.0.1:3306/alkb-order?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false
+          url: jdbc:mysql://127.0.0.1:3306/ticwatch?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false
           username: root
           password: 123456
           driver-class-name: com.mysql.cj.jdbc.Driver
+        account: # 数据源2配置
+          url: jdbc:mysql://127.0.0.1:3306/ticaccount?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.jdbc.Driver
       durid:
         initial-size: 1
         max-active: 20

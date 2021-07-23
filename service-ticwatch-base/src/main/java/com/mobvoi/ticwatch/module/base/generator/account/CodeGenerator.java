@@ -1,4 +1,4 @@
-package com.mobvoi.ticwatch.module.base.generator.ticwatch;
+package com.mobvoi.ticwatch.module.base.generator.account;
 
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
@@ -46,12 +46,12 @@ public class CodeGenerator {
 
   public final static String projectPath = System.getProperty("user.dir");
 
-  public final static String packageName = "com.mobvoi.ticwatch.module.base.modules";
+  public final static String packageName = "com.mobvoi.ticwatch";
 
   /**
    * 数据库配置
    */
-  public final static String db_url = "jdbc:mysql://127.0.0.1:3306/ticwatch?useUnicode=true&useSSL=false&characterEncoding=utf8";
+  public final static String db_url = "jdbc:mysql://127.0.0.1:3306/ticaccount?useUnicode=true&useSSL=false&characterEncoding=utf8";
   public final static String db_driverName = "com.mysql.cj.jdbc.Driver";
   public final static String db_username = "root";
   public final static String db_password = "123456";
