@@ -35,11 +35,17 @@ spring:
         max-wait: 60000
   autoconfigure:
     exclude:  com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure # 去除druid配置
-#  redis: # 用于多个节点共享token
-#    host: 127.0.0.1
-#    port: 6379
-#    password:
-#    timeout: 500
-#    database: 0
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 500
+    database: 0
+    jedis:
+      pool:
+        max-idle: 6
+        max-active: 32
+        max-wait: 100
+        min-idle: 4
 
 
