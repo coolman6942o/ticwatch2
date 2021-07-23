@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.ticwatch.module.base.modules.mapper.TbMotionRecordsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mobvoi.ticwatch.framework.domain.entitys.ticwatch.TbMotionRecordsEntity">
+        <result column="account_id" property="accountId" />
+        <result column="type" property="type" />
+        <result column="start_at" property="startAt" />
+        <result column="end_at" property="endAt" />
+        <result column="total_distance" property="totalDistance" />
+        <result column="total_calorie" property="totalCalorie" />
+        <result column="total_steps" property="totalSteps" />
+        <result column="total_motion_time" property="totalMotionTime" />
+        <result column="avg_heart_rate" property="avgHeartRate" />
+        <result column="recorded_at" property="recordedAt" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        account_id, type, start_at, end_at, total_distance, total_calorie, total_steps, total_motion_time, avg_heart_rate, recorded_at, created_at, updated_at
+    </sql>
+
+</mapper>

@@ -1,0 +1,40 @@
+
+swagger:
+  enable: true
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: ticwatch
+#  flyway:
+#    enabled: true
+#    encoding: utf-8
+#    locations: classpath:db/migration
+#    table: flyway_schema_history
+#    baseline-on-migrate: true
+#    validate-on-migrate: false
+  datasource:
+    dynamic:
+      primary: ticwatch # 配置默认数据库
+      datasource:
+        ticwatch: # 数据源1配置
+          url: jdbc:mysql://127.0.0.1:3306/alkb-order?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
+      durid:
+        initial-size: 1
+        max-active: 20
+        min-idle: 1
+        max-wait: 60000
+  autoconfigure:
+    exclude:  com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure # 去除druid配置
+#  redis: # 用于多个节点共享token
+#    host: 127.0.0.1
+#    port: 6379
+#    password:
+#    timeout: 500
+#    database: 0
+
+
