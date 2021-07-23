@@ -3,10 +3,14 @@ package com.mobvoi.ticwatch.appvpa.service.ticwatch.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mobvoi.ticwatch.appvpa.service.ticwatch.SMotionRecordsService;
+import com.mobvoi.ticwatch.base.modules.mysql.ticwatch.mapper.TbMotionRecordsMapper;
+import com.mobvoi.ticwatch.base.modules.mysql.ticwatch.service.TbMotionRecordsService;
+import com.mobvoi.ticwatch.framework.cache.cache.IRedisCache;
+import com.mobvoi.ticwatch.framework.core.utils.JSONUtils;
 import com.mobvoi.ticwatch.framework.domain.entitys.ticwatch.TbMotionRecordsEntity;
-import com.mobvoi.ticwatch.module.base.modules.mysql.ticwatch.mapper.TbMotionRecordsMapper;
-import com.mobvoi.ticwatch.module.base.modules.mysql.ticwatch.service.TbMotionRecordsService;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,17 +25,35 @@ import org.springframework.stereotype.Service;
 @Service
 public class SMotionRecordsServiceImpl implements SMotionRecordsService {
 
+  private static final Logger logger = LoggerFactory.getLogger(SMotionRecordsServiceImpl.class);
+
   @Autowired
   private TbMotionRecordsService tbMotionRecordsService;
 
   @Autowired
   private TbMotionRecordsMapper tbMotionRecordsMapper;
 
+  @Autowired
+  private IRedisCache redisUtils;
+
+
   @Override
   public List<TbMotionRecordsEntity> list(String accountId) {
-    QueryWrapper<TbMotionRecordsEntity> queryWrapper = new QueryWrapper<>();
-    queryWrapper.eq("account_id",accountId);
-    return tbMotionRecordsService.list(queryWrapper);
+    String key = "LIST_" + accountId;
+
+    List<TbMotionRecordsEntity> result;
+    if (!redisUtils.exists(key)) {
+      logger.info("[redis] accountinfo not exists ,accountId={}", accountId);
+      QueryWrapper<TbMotionRecordsEntity> queryWrapper = new QueryWrapper<>();
+      queryWrapper.eq("account_id", accountId);
+      result = tbMotionRecordsService.list(queryWrapper);
+      redisUtils.set(key, result, 100L);
+    } else {
+      logger.info("[redis] accountinfo exists,accountId={}", accountId);
+      Object o = redisUtils.get(key);
+      result = JSONUtils.jsonToList(JSONUtils.objectToJson(o), TbMotionRecordsEntity.class);
+    }
+    return result;
   }
 
   @Override

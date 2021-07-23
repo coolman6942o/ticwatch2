@@ -3,7 +3,7 @@ package com.mobvoi.ticwatch.appvpa.service.account.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mobvoi.ticwatch.appvpa.service.account.SAccountService;
 import com.mobvoi.ticwatch.framework.domain.entitys.account.TbAccountEntity;
-import com.mobvoi.ticwatch.module.base.modules.mysql.account.service.TbAccountService;
+import com.mobvoi.ticwatch.base.modules.mysql.account.service.TbAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

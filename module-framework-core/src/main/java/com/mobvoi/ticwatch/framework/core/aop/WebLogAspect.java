@@ -1,6 +1,7 @@
 package com.mobvoi.ticwatch.framework.core.aop;
 
 import com.mobvoi.ticwatch.framework.core.utils.JSONUtils;
+import com.mobvoi.ticwatch.framework.core.utils.StringUtil;
 import java.util.Arrays;
 import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +43,7 @@ public class WebLogAspect {
     // 记录下请求内容
     log.debug("REQUEST INFO:URL:{},ARGS:{}", requestURI, Arrays.toString(joinPoint.getArgs()));
     Object result = joinPoint.proceed();
-    log.debug("RESPONSE INFO:{}", JSONUtils.objectToJson(result));
+    log.debug("RESPONSE INFO:{}", StringUtil.trimLog(JSONUtils.objectToJson(result)));
     log.debug("SPEND TIME :{}ms", (System.currentTimeMillis() - startTime));
     return result;
   }

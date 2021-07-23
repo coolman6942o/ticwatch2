@@ -46,6 +46,13 @@
     </dependency>
 
     <dependency>
+      <groupId>com.mobvoi.ticwatch</groupId>
+      <artifactId>module-framework-cache</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
       <groupId>io.springfox</groupId>
       <artifactId>springfox-swagger2</artifactId>
       <version>2.9.2</version>

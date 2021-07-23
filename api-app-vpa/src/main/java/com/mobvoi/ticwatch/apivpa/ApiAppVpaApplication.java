@@ -8,7 +8,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.mobvoi"})
-@MapperScan("com.mobvoi.ticwatch.module.base.modules.mysql.*.mapper")
+@MapperScan({"com.mobvoi.ticwatch.base.modules.mysql.account.mapper"
+    ,"com.mobvoi.ticwatch.base.modules.mysql.ticwatch.mapper"})
 @EnableSwagger2
 public class ApiAppVpaApplication {
 

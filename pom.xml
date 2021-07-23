@@ -23,21 +23,6 @@
     <java.version>1.8</java.version>
   </properties>
 
-  <modules>
-    <module>api-app-vpa</module>
-    <module>service-app-vpa</module>
-    <module>service-ticwatch-base</module>
-    <module>module-ticwatch-domain</module>
-    <module>module-framework-core</module>
-<!--    <module>api-app-watch</module>-->
-<!--    <module>module-framework-cache</module>-->
-<!--    <module>module-framework-config</module>-->
-<!--    <module>module-framework-mq</module>-->
-<!--    <module>module-framework-security</module>-->
-<!--    <module>service-app-report</module>-->
-<!--    <module>service-app-watch</module>-->
-  </modules>
-
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -61,11 +46,6 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter</artifactId>
     </dependency>
 
     <dependency>
@@ -113,8 +93,6 @@
 
   </dependencies>
 
-
-
   <build>
     <plugins>
       <plugin>
@@ -145,6 +123,23 @@
       </plugins>
     </pluginManagement>
   </build>
+
+
+
+  <modules>
+    <module>api-app-vpa</module>
+    <module>service-app-vpa</module>
+    <module>service-ticwatch-base</module>
+    <module>module-ticwatch-domain</module>
+    <module>module-framework-core</module>
+    <module>module-framework-cache</module>
+    <module>module-framework-config</module>
+    <!--    <module>api-app-watch</module>-->
+    <!--    <module>module-framework-mq</module>-->
+    <!--    <module>module-framework-security</module>-->
+    <!--    <module>service-app-report</module>-->
+    <!--    <module>service-app-watch</module>-->
+  </modules>
 
   <pluginRepositories>
     <pluginRepository>
