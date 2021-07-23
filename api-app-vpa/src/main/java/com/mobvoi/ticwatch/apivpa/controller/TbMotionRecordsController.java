@@ -4,6 +4,8 @@ package com.mobvoi.ticwatch.apivpa.controller;
 import com.mobvoi.ticwatch.appvpa.service.ticwatch.SMotionRecordsService;
 import com.mobvoi.ticwatch.framework.core.responses.RestResponse;
 import com.mobvoi.ticwatch.framework.domain.entitys.ticwatch.TbMotionRecordsEntity;
+import com.mobvoi.ticwatch.framework.domain.influxdb.motion.MotionPoint;
+import com.mobvoi.ticwatch.framework.domain.vo.MotionPointVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -11,6 +13,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -47,6 +51,21 @@ public class TbMotionRecordsController {
       @PathVariable(value = "accountId") String accountId) {
     List<TbMotionRecordsEntity> list = sMotionRecordsService.getList(accountId);
     return RestResponse.success(list);
+  }
+
+
+  @ApiOperation("influxdb保存列表")
+  @PostMapping("/influxdb/save")
+  public RestResponse saveMotionRecords(@RequestBody List<MotionPointVO> volist) {
+    sMotionRecordsService.save(volist);
+    return RestResponse.success();
+  }
+
+  @ApiOperation("influxdb查询列表")
+  @GetMapping("/influxdb/querylist")
+  public RestResponse queryMotionRecords() {
+    List<MotionPoint> resList = sMotionRecordsService.queryList();
+    return RestResponse.success(resList);
   }
 
 

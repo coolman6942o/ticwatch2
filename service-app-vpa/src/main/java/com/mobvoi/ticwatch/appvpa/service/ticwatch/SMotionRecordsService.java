@@ -2,6 +2,8 @@ package com.mobvoi.ticwatch.appvpa.service.ticwatch;
 
 
 import com.mobvoi.ticwatch.framework.domain.entitys.ticwatch.TbMotionRecordsEntity;
+import com.mobvoi.ticwatch.framework.domain.influxdb.motion.MotionPoint;
+import com.mobvoi.ticwatch.framework.domain.vo.MotionPointVO;
 import java.util.List;
 
 /**
@@ -17,5 +19,9 @@ public interface SMotionRecordsService {
   List<TbMotionRecordsEntity> list(String accountId);
 
   List<TbMotionRecordsEntity> getList(String accountId);
+
+  void save(List<MotionPointVO> list);
+
+  List<MotionPoint> queryList();
 
 }

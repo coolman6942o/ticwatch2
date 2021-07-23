@@ -47,5 +47,10 @@ spring:
         max-active: 32
         max-wait: 100
         min-idle: 4
-
+  influx:
+    url: http://192.168.31.125:8087 #influxdb服务器的地址
+    user: mobvoi #用户名
+    password: 123456789 #密码
+    database: ticwatch #指定的数据库
+    retentionPolicy: autogen
 

@@ -5,7 +5,7 @@ import lombok.Data;
 
 /**
  * @Project :
- * @Package Name : com.mobvoi.elearning.dtos.web
+ * @Package Name : com.mobvoi.elearning.vo.web
  * @Description : 分页实体类
  * @Author : zhangbin
  * @Create Date : 2019-06-20 16:55

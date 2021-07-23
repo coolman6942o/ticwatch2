@@ -100,7 +100,7 @@ public class RedisConfig {
     template.setValueSerializer(redisSerializer);
     template.setHashValueSerializer(redisSerializer);
     template.afterPropertiesSet();
-    logger.info("Redis init complete host:{},port:{}", host, port);
+    logger.info("nitializing connection with Redis complete http://{}:{}", host, port);
     return template;
   }
 

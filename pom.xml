@@ -91,6 +91,13 @@
       <version>23.0</version>
     </dependency>
 
+    <!-- influxdb SpringBoot使用的是2.3.4.RELEASE 与之对应的influxdb版本应该是2.18 -->
+    <dependency>
+      <groupId>org.influxdb</groupId>
+      <artifactId>influxdb-java</artifactId>
+      <version>2.18</version>
+    </dependency>
+
   </dependencies>
 
   <build>

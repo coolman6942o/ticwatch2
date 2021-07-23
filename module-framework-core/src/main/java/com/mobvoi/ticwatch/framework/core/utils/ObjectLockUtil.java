@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @Project : elearning
- * @Package Name : com.mobvoi.common
+ * @Package Name : com.mobvoi.demo
  * @Description : 对象锁，根据指定对象加锁，注意一定要解锁，否者会导致locks持续增加，内存会爆
  *
  * @Author : tandy

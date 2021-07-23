@@ -3,11 +3,14 @@ package com.mobvoi.ticwatch.appvpa.service.ticwatch.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mobvoi.ticwatch.appvpa.service.ticwatch.SMotionRecordsService;
+import com.mobvoi.ticwatch.base.modules.influxdb.service.motion.IinfluxdbMotionService;
 import com.mobvoi.ticwatch.base.modules.mysql.ticwatch.mapper.TbMotionRecordsMapper;
 import com.mobvoi.ticwatch.base.modules.mysql.ticwatch.service.TbMotionRecordsService;
 import com.mobvoi.ticwatch.framework.cache.cache.IRedisCache;
 import com.mobvoi.ticwatch.framework.core.utils.JSONUtils;
 import com.mobvoi.ticwatch.framework.domain.entitys.ticwatch.TbMotionRecordsEntity;
+import com.mobvoi.ticwatch.framework.domain.influxdb.motion.MotionPoint;
+import com.mobvoi.ticwatch.framework.domain.vo.MotionPointVO;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +35,9 @@ public class SMotionRecordsServiceImpl implements SMotionRecordsService {
 
   @Autowired
   private TbMotionRecordsMapper tbMotionRecordsMapper;
+
+  @Autowired
+  private IinfluxdbMotionService influxdbMotionService;
 
   @Autowired
   private IRedisCache redisUtils;
@@ -63,4 +69,18 @@ public class SMotionRecordsServiceImpl implements SMotionRecordsService {
     List<TbMotionRecordsEntity> tbMotionRecordsEntities = tbMotionRecordsMapper.selectList(lqw);
     return tbMotionRecordsEntities;
   }
+
+  @Override
+  public void save(List<MotionPointVO> list) {
+    influxdbMotionService.save(list);
+  }
+
+  @Override
+  public List<MotionPoint> queryList() {
+    return influxdbMotionService.queryList();
+  }
+
+
+
+
 }
