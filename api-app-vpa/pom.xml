@@ -80,7 +80,7 @@
     <dependency>
       <groupId>io.swagger</groupId>
       <artifactId>swagger-models</artifactId>
-      <version>1.5.21</version>
+      <version>1.6.8</version>
     </dependency>
 
     <!--用于定义参数校验器 + 全局异常处理器-->
