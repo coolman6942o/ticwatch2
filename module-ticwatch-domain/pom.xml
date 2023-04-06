@@ -69,7 +69,7 @@
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-extension</artifactId>
-			<version>3.2.0</version>
+			<version>3.5.3.1</version>
 		</dependency>
 
 		<!-- influxdb SpringBoot使用的是2.3.4.RELEASE 与之对应的influxdb版本应该是2.18 -->
