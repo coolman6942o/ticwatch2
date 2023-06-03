@@ -16,7 +16,7 @@
 
   <properties>
     <java.version>1.8</java.version>
-    <fasterxml.jackson.version>2.9.4</fasterxml.jackson.version>
+    <fasterxml.jackson.version>2.9.9.1</fasterxml.jackson.version>
   </properties>
 
 
