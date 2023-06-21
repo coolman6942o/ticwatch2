@@ -88,7 +88,7 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>23.0</version>
+      <version>32.0.0-android</version>
     </dependency>
 
     <!-- influxdb SpringBoot使用的是2.3.4.RELEASE 与之对应的influxdb版本应该是2.18 -->
