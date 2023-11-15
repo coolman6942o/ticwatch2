@@ -16,7 +16,7 @@
 
   <properties>
     <java.version>1.8</java.version>
-    <fasterxml.jackson.version>2.9.4</fasterxml.jackson.version>
+    <fasterxml.jackson.version>2.9.9.2</fasterxml.jackson.version>
   </properties>
 
 
@@ -108,13 +108,13 @@
     <dependency>
       <groupId>com.auth0</groupId>
       <artifactId>java-jwt</artifactId>
-      <version>3.4.1</version>
+      <version>3.8.2</version>
     </dependency>
 
     <dependency>
       <groupId>io.jsonwebtoken</groupId>
       <artifactId>jjwt</artifactId>
-      <version>0.7.0</version>
+      <version>0.12.0</version>
     </dependency>
 
     <dependency>
